@@ -8,6 +8,7 @@ public class Banco {
 
 	private static List<Empresa> lista = new ArrayList<>();
 	
+	/* Adiciona as empresas assim que o servidor é iniciado */
 	static {
 		Empresa emp1 = new Empresa();
 		emp1.setNome("Intel");
