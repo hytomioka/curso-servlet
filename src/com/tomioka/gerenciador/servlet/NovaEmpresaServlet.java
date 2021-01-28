@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/novaEmpresa")
-public class NovaEmpresa extends HttpServlet {
+public class NovaEmpresaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/* método doPost() só aceita requisições do tipo POST */
