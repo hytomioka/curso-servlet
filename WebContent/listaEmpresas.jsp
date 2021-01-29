@@ -1,9 +1,10 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    
-<%@page import="com.tomioka.gerenciador.servlet.Empresa" %> 
-    
+	pageEncoding="ISO-8859-1"%>
+<%@page import="com.tomioka.gerenciador.servlet.Empresa"%>
+<!-- importa a biblioteca JSTL Core, adicionando um prefixo para utilização de seus métodos -->
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,14 +12,15 @@
 <title>Listagem das Empresas no Banco</title>
 </head>
 <body>
-<ul>
-	<% 
-		List<Empresa> lista = (List<Empresa>) request.getAttribute("empresas");
-		for (Empresa empresa : lista) {
-			out.println("<li>" + empresa.getNome() + "</li>");
-		}
-	%>
+	<br> Lista de Empresas
+	</br>
+	<ul>
+		<!-- laço de iteração for do HTML. tag "items" é a lista a ser percorrida. tag "var" é a variavel de iteração -->
+		<c:forEach items="${ empresas }" var="empresa">
+			<li>${ empresa.nome }</li>
 
-</ul>
+		</c:forEach>
+	</ul>
+
 </body>
 </html>
