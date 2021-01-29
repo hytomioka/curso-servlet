@@ -44,11 +44,16 @@ public class NovaEmpresaServlet extends HttpServlet {
 		Banco banco = new Banco();
 		banco.adiciona(empresa);
 		
-		/* A requisição HTTP será despachada para o arquivo JSP */
-		RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas");
-		/* A requição irá despachar o objeto empresa */
-		request.setAttribute("empresa", empresa.getNome());
-		rd.forward(request, response);
+		/* Redirecionamento Client Side
+		 * O servlet manda uma reposta de redirecionamento ao navegador, terminando a requisição */
+		response.sendRedirect("listaEmpresas");
+		
+//		/* A requisição HTTP será despachada para outro arquivo */
+		/* Redirecionamento Server Side */
+//		RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas");
+//		/* A requição irá despachar o objeto empresa */
+//		request.setAttribute("empresa", empresa.getNome());
+//		rd.forward(request, response);
 		
 	}
 
