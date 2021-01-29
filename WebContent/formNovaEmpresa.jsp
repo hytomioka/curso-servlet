@@ -13,6 +13,7 @@
 		<!-- Cabeçalho "Nome da Empresa" aparece no corpo do browser  --> 
 		<!-- "name" em input precisa receber o parâmetro "nome", presente no getParameter() -->
 		Nome da Empresa: <input type="text" name="nome">
+		Data de Abertura: <input type="text" name="dataAbertura">
 		
 		<!-- "submit" é o botão padrão -->
 		<input type="submit">

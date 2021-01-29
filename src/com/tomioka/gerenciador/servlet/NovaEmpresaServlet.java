@@ -1,6 +1,9 @@
 package com.tomioka.gerenciador.servlet;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,9 +21,24 @@ public class NovaEmpresaServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		String nomeEmpresa = request.getParameter("nome");
+		String dataAberturaString = request.getParameter("dataAbertura");
+		
+		
+		Date dataAbertura = null;
+		
+		try {
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+			dataAbertura = sdf.parse(dataAberturaString);
+		} catch (ParseException e) {
+			/* Caso o dataAbertura esteja inválido, para a execução */
+			throw new ServletException(e);
+		}
 
 		Empresa empresa = new Empresa();
+		
 		empresa.setNome(nomeEmpresa);
+		empresa.setDataAbertura(dataAbertura);
+		
 		System.out.println("Nova empresa cadastrada");
 
 		Banco banco = new Banco();

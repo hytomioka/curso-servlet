@@ -4,6 +4,8 @@
 <%@page import="com.tomioka.gerenciador.servlet.Empresa"%>
 <!-- importa a biblioteca JSTL Core, adicionando um prefixo para utilização de seus métodos -->
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 
 <!DOCTYPE html>
 <html>
@@ -17,7 +19,7 @@
 	<ul>
 		<!-- laço de iteração for do HTML. tag "items" é a lista a ser percorrida. tag "var" é a variavel de iteração -->
 		<c:forEach items="${ empresas }" var="empresa">
-			<li>${ empresa.nome }</li>
+			<li>${ empresa.nome } - <fmt:formatDate value="${empresa.dataAbertura}" pattern="dd/MM/yyyy"/></li>
 
 		</c:forEach>
 	</ul>
