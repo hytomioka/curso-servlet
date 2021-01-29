@@ -20,4 +20,6 @@
 
 	</form>
 </body>
-</html>
+</html><%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!-- "c:url" retorna a localizacao do recurso, neste caso: /gerenciador/novaEmpresa -->
+<c:url value="/novaEmpresa" var="linkServletNovaEmpresa"/>
