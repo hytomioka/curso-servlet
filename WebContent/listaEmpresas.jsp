@@ -14,12 +14,17 @@
 <title>Listagem das Empresas no Banco</title>
 </head>
 <body>
-	<br> Lista de Empresas
+	<c:if test="${not empty empresa}">
+		Empresa ${empresa} cadastrada com sucesso.
+	</c:if>
+	</br>
+	Lista de Empresas:
 	</br>
 	<ul>
 		<!-- laço de iteração for do HTML. tag "items" é a lista a ser percorrida. tag "var" é a variavel de iteração -->
 		<c:forEach items="${ empresas }" var="empresa">
-			<li>${ empresa.nome } - <fmt:formatDate value="${empresa.dataAbertura}" pattern="dd/MM/yyyy"/></li>
+			<li>${ empresa.nome } - <fmt:formatDate
+					value="${empresa.dataAbertura}" pattern="dd/MM/yyyy" /></li>
 
 		</c:forEach>
 	</ul>
