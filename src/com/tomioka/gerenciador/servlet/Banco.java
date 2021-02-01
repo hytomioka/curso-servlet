@@ -1,6 +1,7 @@
 package com.tomioka.gerenciador.servlet;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -9,7 +10,7 @@ public class Banco {
 
 	private static List<Empresa> lista = new ArrayList<>();
 	private static Integer chaveSequencial = 1;
-	
+
 	/* Adiciona as empresas assim que o servidor é iniciado */
 	static {
 		Empresa emp1 = new Empresa();
@@ -28,23 +29,47 @@ public class Banco {
 		System.out.println("Empresa com o nome de " + empresa.getNome() + " adicionada no banco de dados");
 
 	}
-	
+
 	public void remove(Integer id) {
 		for (Empresa empresa : lista) {
-			if(empresa.getId() == id) {
+			if (empresa.getId() == id) {
 				lista.remove(empresa);
 				break;
 			}
 		}
 	}
-	/* Maneira rustica de escrever o metodo "remove". Remove ou adiciona um item na colecao sem haver
-	 * necessidade de implementar o "break" */
-	public void remove2(Integer id) {
+	
+	public Empresa busca(Integer id) {		
+		for (Empresa empresa : lista) {
+			if (empresa.getId() == id) {
+				return empresa;
+			}
+		}
+		return null;
+	}
+	
+	public void atualiza(Integer id, String nome, Date dataAbertura) {
 		Iterator<Empresa> it = lista.iterator();
 		
 		while (it.hasNext()) {
 			Empresa emp = it.next();
-			
+			if (emp.getId() == id) {
+				emp.setNome(nome);
+				emp.setDataAbertura(dataAbertura);
+			}
+		}
+	}
+
+	/*
+	 * Maneira rustica de escrever o metodo "remove". Remove ou adiciona um item na
+	 * colecao sem haver necessidade de implementar o "break"
+	 */
+	public void remove2(Integer id) {
+		Iterator<Empresa> it = lista.iterator();
+
+		while (it.hasNext()) {
+			Empresa emp = it.next();
+
 			if (emp.getId() == id) {
 				it.remove();
 			}
