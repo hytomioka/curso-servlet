@@ -23,7 +23,7 @@ public class MostraEmpresaServlet extends HttpServlet {
 		Banco banco = new Banco();
 		Empresa empresa = banco.busca(id);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/atualizaEmpresa.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/formAtualizaEmpresa.jsp");
 		request.setAttribute("empresa", empresa);
 		rd.forward(request, response);
 		

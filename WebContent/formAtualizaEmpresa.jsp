@@ -16,6 +16,7 @@
 		
 		Nome da empresa: <input type="text" name="nome" value="${empresa.nome}">
 		Data de abertura: <input type="text" name="dataAbertura" value="${dataAbertura}">
+<%-- 		<input type="hidden" name="id" value="${empresa.id}"> --%>
 		
 		<input type="submit">
 	

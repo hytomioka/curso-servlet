@@ -5,8 +5,8 @@
 <!-- importa a biblioteca JSTL Core, adicionando um prefixo para utilização de seus métodos -->
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<c:url value="/deletaEmpresa" var="LinkServletDeletaEmpresa"/>
-<c:url value="/mostraEmpresa" var="LinkServletMostraEmpresa"/>
+<c:url value="/deletaEmpresa" var="LinkServletDeletaEmpresa" />
+<c:url value="/mostraEmpresa" var="LinkServletMostraEmpresa" />
 
 
 <!DOCTYPE html>
@@ -19,16 +19,15 @@
 	<c:if test="${not empty empresa}">
 		Empresa ${empresa} cadastrada com sucesso.
 	</c:if>
-	</br>
-	Lista de Empresas:
+	</br> Lista de Empresas:
 	</br>
 	<ul>
 		<!-- laço de iteração for do HTML. tag "items" é a lista a ser percorrida. tag "var" é a variavel de iteração -->
 		<c:forEach items="${ empresas }" var="empresa">
 			<li>${ empresa.nome } - <fmt:formatDate
-					value="${empresa.dataAbertura}" pattern="dd/MM/yyyy" />
-					<a href="${LinkServletDeletaEmpresa}?id=${empresa.id}" >remover</a>
-					<a href="${LinkServletMostraEmpresa}?id=${empresa.id}">editar</a>
+					value="${empresa.dataAbertura}" pattern="dd/MM/yyyy" /> <a
+				href="${LinkServletMostraEmpresa}?id=${empresa.id}">editar</a> <a
+				href="${LinkServletDeletaEmpresa}?id=${empresa.id}">remover</a>
 
 			</li>
 		</c:forEach>
