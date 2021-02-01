@@ -1,6 +1,7 @@
 package com.tomioka.gerenciador.servlet;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /* Simulação de um banco de dados a partir de um modelo */
@@ -33,6 +34,19 @@ public class Banco {
 			if(empresa.getId() == id) {
 				lista.remove(empresa);
 				break;
+			}
+		}
+	}
+	/* Maneira rustica de escrever o metodo "remove". Remove ou adiciona um item na colecao sem haver
+	 * necessidade de implementar o "break" */
+	public void remove2(Integer id) {
+		Iterator<Empresa> it = lista.iterator();
+		
+		while (it.hasNext()) {
+			Empresa emp = it.next();
+			
+			if (emp.getId() == id) {
+				it.remove();
 			}
 		}
 	}
