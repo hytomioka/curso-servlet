@@ -22,7 +22,7 @@ public class Banco {
 	}
 
 	public void adiciona(Empresa empresa) {
-		empresa.setId(Banco.chaveSequencial);
+		empresa.setId(Banco.chaveSequencial++);
 		lista.add(empresa);
 		System.out.println("Empresa com o nome de " + empresa.getNome() + " adicionada no banco de dados");
 
@@ -32,6 +32,7 @@ public class Banco {
 		for (Empresa empresa : lista) {
 			if(empresa.getId() == id) {
 				lista.remove(empresa);
+				break;
 			}
 		}
 	}
